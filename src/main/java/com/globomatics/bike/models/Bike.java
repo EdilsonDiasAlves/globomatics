@@ -3,11 +3,21 @@ package com.globomatics.bike.models;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel("Bike - Must contain informations about the bikes to be registered, consulted, etc")
+@Entity
 public class Bike {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String name;
 	private String email;
 	private String phone;
@@ -16,6 +26,14 @@ public class Bike {
 	private BigDecimal purchasePrice;
 	private Date purchaseDate;
 	private boolean contact;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	@ApiModelProperty("The name of the owner's bike")
 	public String getName() {
