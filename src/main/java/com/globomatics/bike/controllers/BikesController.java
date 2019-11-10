@@ -30,7 +30,7 @@ public class BikesController {
 			@ApiResponse(code = 403, message = "User not have permission to visualize"),
 			@ApiResponse(code = 500, message = "Generic Exception Generated"),
 	})
-	@GetMapping(produces="application/json")
+	@GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
 	List<Bike> list(){
 		List<Bike> bikes = new ArrayList<>();
 		return bikes;
